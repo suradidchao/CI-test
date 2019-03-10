@@ -7,4 +7,4 @@ RUN npm run build
 
 FROM nginx as production-stage
 EXPOSE 80
-COPY --from=build-stage /app/build /user/share/nginx/html
+COPY --from=build-stage /app/dist /user/share/nginx/html
