@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t suradidchao/vue-app -f Dockerfile.dev .
+
+script:
+  - docker run suradidchao/vue-app npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "vue-app"
+  env: "VueApp-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-150535664023"
+  bucket_path: "vue-app"
