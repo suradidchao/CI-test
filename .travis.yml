@@ -15,3 +15,8 @@ deploy:
   env: "VueApp-env"
   bucket_name: "elasticbeanstalk-ap-southeast-1-150535664023"
   bucket_path: "vue-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "AWS_SECRET_KEY"
